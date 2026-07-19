@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sản phẩm | Flower Shop</title>
+
+    <link rel="stylesheet" href="../css/trangindex.css">
+      <link rel="stylesheet" href="../css/san-pham.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+
+        <img src="../assets/img/logo-shop-hoa-3.jpg" alt="Logo Flower Shop">
+
+        <h2>Flower Shop</h2>
+
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="../index.html">
+                    Trang chủ
+                </a>
+            </li>
+
+
+            <li>
+                <a href="san-pham.html" class="active">
+                    Sản phẩm
+                </a>
+            </li>
+
+
+            <li>
+                <a href="gioi-thieu.html">
+                    Giới thiệu
+                </a>
+            </li>
+
+
+            <li>
+                <a href="lien-he.html">
+                    Liên hệ
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <div class="header-right">
+
+
+    <a href="html/gio-hang.html">
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        Giỏ hàng
+
+    </a>
+
+
+
+    <a href="html/dang-nhap.html">
+
+        <i class="fa-solid fa-user"></i>
+
+        Đăng nhập
+
+    </a>
+
+
+
+    <a href="html/dang-ky.html">
+
+        <i class="fa-solid fa-user-plus"></i>
+
+        Đăng ký
+
+    </a>
+
+
+</div>
+
+</header>
+
+
+
+
+<!-- ================= BANNER ================= -->
+
+<section class="banner">
+
+    <img src="../assets/img/vuon-hoa-hitachi-thien-duong-hoa-cua-nhat-ban.jpg"
+        alt="Vườn hoa">
+
+    <div class="banner-content">
+
+        <h1>Sản phẩm hoa tươi</h1>
+
+        <p>
+            Khám phá bộ sưu tập hoa tươi dành cho mọi dịp đặc biệt
+        </p>
+
+
+        <a href="gio-hang.html" class="btn-banner">
+            Xem giỏ hàng
+        </a>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+<!-- ================= DANH MỤC ================= -->
+
+<section class="category">
+
+
+    <h2>Danh mục hoa</h2>
+
+
+    <div class="category-list">
+
+
+        <div class="card" onclick="locDanhMuc('Hoa Sinh Nhật')">
+
+            <i class="fa-solid fa-gift"></i>
+
+            <h3>
+                Hoa Sinh Nhật
+            </h3>
+
+        </div>
+
+
+
+        <div class="card" onclick="locDanhMuc('Hoa Tình Yêu')">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <h3>
+                Hoa Tình Yêu
+            </h3>
+
+        </div>
+
+
+
+        <div class="card" onclick="locDanhMuc('Hoa Cưới')">
+
+            <i class="fa-solid fa-ring"></i>
+
+            <h3>
+                Hoa Cưới
+            </h3>
+
+        </div>
+
+
+
+        <div class="card" onclick="locDanhMuc('Hoa Khai Trương')">
+
+            <i class="fa-solid fa-award"></i>
+
+            <h3>
+                Hoa Khai Trương
+            </h3>
+
+        </div>
+
+
+
+        <div class="card" onclick="locDanhMuc('Hoa Chia Buồn')">
+
+            <i class="fa-solid fa-hand-holding-heart"></i>
+
+            <h3>
+                Hoa Chia Buồn
+            </h3>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ================= TÌM KIẾM ================= -->
+
+
+<section class="search">
+
+
+    <input type="text"
+        id="txtTimKiem"
+        placeholder="Nhập tên sản phẩm..."
+        onkeyup="timKiemSanPham()">
+
+
+
+</section>
+
+
+
+
+
+
+<!-- ================= SẢN PHẨM ================= -->
+
+
+<section class="products">
+
+
+    <h2>
+        Tất cả sản phẩm
+    </h2>
+
+
+    <div id="danhSachSanPham" class="product-list">
+
+
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+    <div>
+
+        <h3>
+            Flower Shop
+        </h3>
+
+
+        <p>
+            Chuyên cung cấp hoa tươi chất lượng cao.
+        </p>
+
+
+    </div>
+
+
+
+
+    <div>
+
+
+        <p>
+            <i class="fa-solid fa-location-dot"></i>
+            Trà Vinh
+        </p>
+
+
+        <p>
+            <i class="fa-solid fa-phone"></i>
+            0123 456 789
+        </p>
+
+
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            flowershop@gmail.com
+        </p>
+
+
+        <p>
+            <i class="fa-brands fa-facebook"></i>
+            Flower Shop
+        </p>
+
+
+    </div>
+
+
+
+</footer>
+
+
+
+
+
+
+<script src="../js/data.js"></script>
+
+<script src="../js/san-pham.js"></script>
+
+
+
+</body>
+
+</html>

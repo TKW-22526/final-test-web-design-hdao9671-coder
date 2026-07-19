@@ -1,0 +1,1257 @@
+/* =====================================
+   RESET
+===================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#fffafc;
+    color:#333;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+ul{
+    list-style:none;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+header{
+
+    width:100%;
+    height:80px;
+
+    background:#ffffff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.logo img{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+}
+
+.logo h2{
+
+    color:#e91e63;
+    font-size:28px;
+
+}
+
+nav ul{
+
+    display:flex;
+    gap:35px;
+
+}
+
+nav ul li a{
+
+    font-size:17px;
+    font-weight:600;
+
+    transition:.3s;
+
+    padding:8px 0;
+
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+
+    color:#e91e63;
+
+}
+
+/* =====================================
+   BANNER
+===================================== */
+
+.banner{
+
+    width:100%;
+    height:520px;
+
+    overflow:hidden;
+
+}
+
+.banner img{
+
+    width:100%;
+    height:520px;
+
+    object-fit:cover;
+
+    transition:1s;
+
+}
+
+/* =====================================
+   SECTION
+===================================== */
+
+section{
+
+    width:90%;
+    margin:70px auto;
+
+}
+
+section h2{
+
+    text-align:center;
+
+    font-size:34px;
+
+    margin-bottom:45px;
+
+    color:#e91e63;
+
+}
+
+/* =====================================
+   DANH MỤC
+===================================== */
+
+.category-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    background:#ffeef5;
+
+}
+
+.card i{
+
+    font-size:42px;
+
+    color:#e91e63;
+
+    margin-bottom:18px;
+
+}
+
+.card h3{
+
+    font-size:20px;
+
+}
+
+/* =====================================
+   SẢN PHẨM
+===================================== */
+
+.product-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+}
+
+.product{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.product:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.product img{
+
+    width:100%;
+
+    height:300px;
+
+    object-fit:cover;
+
+    object-position:center center;
+
+    display:block;
+
+    transition:0.4s;
+
+}
+.product-content{
+
+    padding:18px;
+
+}
+
+.product h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+}
+
+.price{
+
+    color:#e91e63;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+.product button{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    background:#e91e63;
+
+    color:white;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.product button:hover{
+
+    background:#c2185b;
+
+}
+
+/* =====================================
+   DỊCH VỤ
+===================================== */
+
+.service-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+}
+
+.box{
+
+    background:white;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.box:hover{
+
+    transform:translateY(-8px);
+
+    background:#fef3f8;
+
+}
+
+.box i{
+
+    font-size:45px;
+
+    color:#4caf50;
+
+    margin-bottom:18px;
+
+}
+
+.box h3{
+
+    font-size:22px;
+
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer{
+
+    margin-top:70px;
+
+    background:#222;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    padding:45px 10%;
+
+}
+
+footer h3{
+
+    margin-bottom:18px;
+
+    color:#ff7aa2;
+
+}
+
+footer p{
+
+    margin:10px 0;
+
+    color:#ddd;
+
+}
+
+footer i{
+
+    margin-right:8px;
+
+    color:#ff7aa2;
+
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media(max-width:992px){
+
+    header{
+
+        flex-direction:column;
+        height:auto;
+        padding:20px;
+
+    }
+
+    nav ul{
+
+        flex-wrap:wrap;
+        justify-content:center;
+        margin-top:20px;
+
+    }
+
+    .category-list{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .service-list{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .banner{
+
+        height:300px;
+
+    }
+
+    .banner img{
+
+        height:300px;
+
+    }
+
+    section h2{
+
+        font-size:28px;
+
+    }
+
+    .category-list,
+    .service-list{
+
+        grid-template-columns:1fr;
+
+    }
+
+    footer{
+
+        flex-direction:column;
+        gap:25px;
+
+    }
+
+}
+/* ================= BANNER ================= */
+
+.banner{
+
+    position: relative;
+
+    width:100%;
+
+    height:600px;
+
+    overflow:hidden;
+
+}
+
+.banner img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    filter:brightness(70%);
+
+}
+
+.banner-content{
+
+    position:absolute;
+
+    top:50%;
+
+    left:8%;
+
+    transform:translateY(-50%);
+
+    color:white;
+
+}
+
+.banner-content h1{
+
+    font-size:64px;
+
+    margin-bottom:15px;
+
+    text-shadow:2px 2px 10px rgba(0,0,0,.4);
+
+}
+
+.banner-content p{
+
+    font-size:24px;
+
+    margin-bottom:30px;
+
+}
+
+.btn-banner{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    background:#2196f3;
+
+    color:white;
+
+    border-radius:8px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-banner:hover{
+
+    background:#1976d2;
+
+}
+/* =====================================
+   TRANG SẢN PHẨM
+===================================== */
+
+
+/* Banner sản phẩm */
+
+.products-banner{
+
+    position:relative;
+    height:450px;
+    overflow:hidden;
+
+}
+
+.products-banner img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    filter:brightness(70%);
+
+}
+
+
+/* Khu vực tìm kiếm */
+
+.search{
+
+    width:90%;
+    margin:40px auto;
+
+    display:flex;
+    justify-content:center;
+
+}
+
+
+.search input{
+
+    width:500px;
+
+    padding:15px 20px;
+
+    border:2px solid #e91e63;
+
+    border-radius:30px;
+
+    outline:none;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+
+.search input:focus{
+
+    box-shadow:0 0 10px rgba(233,30,99,.3);
+
+}
+
+
+
+/* Tiêu đề sản phẩm */
+
+.products h2{
+
+    font-size:34px;
+
+    color:#e91e63;
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+
+
+/* Card sản phẩm */
+
+.products .product{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.products .product img{
+
+    height:280px;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+
+.products .product:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+
+/* Nội dung sản phẩm */
+
+.products .product-content{
+
+    padding:20px;
+
+    text-align:center;
+
+}
+
+
+.products .product h3{
+
+    font-size:20px;
+
+    min-height:50px;
+
+}
+
+
+
+/* Giá */
+
+.products .price{
+
+    font-size:22px;
+
+    color:#e91e63;
+
+    font-weight:bold;
+
+}
+
+
+.sale{
+
+    display:inline-block;
+
+    background:#ffeb3b;
+
+    color:#333;
+
+    padding:5px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* Nút sản phẩm */
+
+.products button{
+
+    margin-top:8px;
+
+}
+
+
+.products button:last-child{
+
+    background:#4caf50;
+
+}
+
+
+.products button:last-child:hover{
+
+    background:#388e3c;
+
+}
+
+
+
+/* Hover danh mục */
+
+.category .card{
+
+    cursor:pointer;
+
+}
+
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+
+    .search input{
+
+        width:100%;
+
+    }
+
+
+    .products .product img{
+
+        height:230px;
+
+    }
+
+}
+.header-right{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+}
+
+
+.header-right a{
+
+    font-size:18px;
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+}
+
+
+.header-right i{
+
+    font-size:22px;
+}
+
+
+.logo img{
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+    object-fit:cover;
+
+}
+/* =====================================
+   FLOWER SHOP - CHI TIẾT SẢN PHẨM
+===================================== */
+
+
+.chi-tiet{
+
+    width:1200px;
+
+    margin:60px auto;
+
+    display:flex;
+
+    gap:50px;
+
+    padding:40px;
+
+    background:#fff;
+
+    border-radius:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.12);
+
+    animation: hienThi 0.6s ease;
+
+}
+
+
+
+
+/* Hiệu ứng xuất hiện */
+
+@keyframes hienThi{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* ===============================
+   ẢNH SẢN PHẨM
+=============================== */
+
+
+.anh-hoa{
+
+    width:50%;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+}
+
+
+
+.anh-hoa img{
+
+
+    width:100%;
+
+    height:550px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
+    transition:0.5s;
+
+
+}
+
+
+
+.anh-hoa:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+
+
+
+/* ===============================
+   THÔNG TIN
+=============================== */
+
+
+.thong-tin{
+
+    flex:1;
+
+    padding:20px;
+
+}
+
+
+
+.thong-tin h1{
+
+
+    font-size:38px;
+
+    color:#333;
+
+    margin-bottom:15px;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.thong-tin h1:hover{
+
+    color:#e91e63;
+
+}
+
+
+
+
+
+/* DANH MỤC */
+
+
+#danhMuc{
+
+
+    display:inline-block;
+
+    padding:8px 20px;
+
+    background:#ffe4ed;
+
+    color:#e91e63;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+/* GIÁ */
+
+
+.gia-cu{
+
+
+    color:#999;
+
+    text-decoration:line-through;
+
+    font-size:18px;
+
+
+}
+
+
+
+.giam{
+
+
+    color:#e91e63;
+
+    font-weight:bold;
+
+}
+
+
+
+.gia-moi{
+
+
+    color:#e91e63;
+
+    font-size:35px;
+
+    font-weight:bold;
+
+    margin:20px 0;
+
+}
+
+
+
+
+
+/* MÔ TẢ */
+
+
+#moTa{
+
+
+    font-size:17px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    padding:20px 0;
+
+    border-bottom:1px solid #eee;
+
+
+}
+
+
+
+
+
+/* ===============================
+   NÚT QUAY LẠI
+=============================== */
+
+
+.thong-tin a{
+
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:12px 30px;
+
+    background:#e91e63;
+
+    color:white;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    transition:0.3s;
+
+
+}
+
+
+
+.thong-tin a:hover{
+
+
+    background:#c2185b;
+
+    transform:translateX(-5px);
+
+
+}
+
+
+
+/* ===============================
+   HIỆU ỨNG THÔNG TIN
+=============================== */
+
+
+.thong-tin h1{
+
+    animation: hienTrai 0.7s ease;
+
+}
+
+
+
+#giaSP{
+
+    animation: hienTrai 0.9s ease;
+
+}
+
+
+
+#moTa{
+
+    animation: hienTrai 1s ease;
+
+}
+
+
+
+
+@keyframes hienTrai{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+
+
+
+
+/* ===============================
+   RESPONSIVE
+=============================== */
+
+
+@media(max-width:900px){
+
+
+    .chi-tiet{
+
+        width:90%;
+
+        flex-direction:column;
+
+        padding:25px;
+
+    }
+
+
+
+    .anh-hoa{
+
+        width:100%;
+
+    }
+
+
+
+    .anh-hoa img{
+
+        height:400px;
+
+    }
+
+
+}
+/* =====================================
+   HIỆU ỨNG CHUYỂN TRANG
+===================================== */
+
+
+/* Khi trang vừa mở */
+
+body{
+
+    animation: moTrang 0.5s ease;
+
+}
+
+
+
+@keyframes moTrang{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* Hiệu ứng khi chuyển trang */
+
+body.chuyen-trang{
+
+
+    animation: dongTrang 0.4s ease forwards;
+
+
+}
+
+
+
+@keyframes dongTrang{
+
+
+    from{
+
+        opacity:1;
+
+    }
+
+
+    to{
+
+        opacity:0;
+
+        transform:translateY(-15px);
+
+    }
+
+}
