@@ -154,3 +154,75 @@ function formatGia(gia){
     +" VNĐ";
 
 }
+// ================================
+// THÊM GIỎ HÀNG
+// ================================
+
+function themGioHang(){
+
+    const maHoa = new URLSearchParams(
+        window.location.search
+    ).get("ma");
+
+    const hoa = danhSachHoa.find(
+        item => item.ma == maHoa
+    );
+
+    let gioHang = JSON.parse(
+        localStorage.getItem("gioHang")
+    ) || [];
+
+    const viTri = gioHang.findIndex(
+        item => item.ma == hoa.ma
+    );
+
+    if(viTri >= 0){
+
+        gioHang[viTri].soLuong++;
+
+    }else{
+
+        gioHang.push({
+
+            ma: hoa.ma,
+
+            ten: hoa.ten,
+
+            gia: hoa.gia,
+
+            giamGia: hoa.giamGia,
+
+            hinh: hoa.hinh,
+
+            soLuong: 1
+
+        });
+
+    }
+
+    localStorage.setItem(
+        "gioHang",
+        JSON.stringify(gioHang)
+    );
+
+    alert("Đã thêm vào giỏ hàng!");
+}
+
+
+
+// ================================
+// MUA NGAY
+// ================================
+function muaNgay(){
+
+    const maHoa = new URLSearchParams(
+        window.location.search
+    ).get("ma");
+
+    localStorage.setItem("muaNgay", maHoa);
+
+    localStorage.removeItem("thanhToanGioHang");
+
+    window.location.href = "thanh-toan.html";
+
+}

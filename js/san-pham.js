@@ -12,18 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
 // HIỂN THỊ DANH SÁCH SẢN PHẨM
 // =====================================
 
-function hienThiSanPham(ds){
+function hienThiSanPham(ds) {
 
     const khung = document.getElementById("danhSachSanPham");
 
-    if(!khung) return;
+    if (!khung) return;
 
     let html = "";
 
-    ds.forEach((hoa)=>{
+    ds.forEach((hoa) => {
 
         html += `
-
         <div class="product">
 
             <img src="${hoa.hinh}" alt="${hoa.ten}">
@@ -33,33 +32,24 @@ function hienThiSanPham(ds){
                 <h3>${hoa.ten}</h3>
 
                 <p class="price">
-
-                    ${hoa.gia.toLocaleString()}đ
-
+                    ${hoa.gia.toLocaleString("vi-VN")}đ
                 </p>
 
                 <p class="sale">
-
                     Giảm ${hoa.giamGia}%
-
                 </p>
 
                 <button onclick="xemChiTiet('${hoa.ma}')">
-
                     Xem chi tiết
-
                 </button>
 
                 <button onclick="themGioHang('${hoa.ma}')">
-
                     Thêm giỏ hàng
-
                 </button>
 
             </div>
 
         </div>
-
         `;
 
     });
@@ -69,10 +59,24 @@ function hienThiSanPham(ds){
 }
 
 // =====================================
-// TÌM KIẾM SẢN PHẨM
+// KÉO XUỐNG PHẦN SẢN PHẨM
 // =====================================
 
-function timKiemSanPham(){
+function cuonSanPham() {
+
+    document.getElementById("sanPham").scrollIntoView({
+
+        behavior: "smooth"
+
+    });
+
+}
+
+// =====================================
+// TÌM KIẾM
+// =====================================
+
+function timKiemSanPham() {
 
     const tuKhoa = document
         .getElementById("txtTimKiem")
@@ -80,9 +84,7 @@ function timKiemSanPham(){
         .toLowerCase();
 
     const ketQua = danhSachHoa.filter(hoa =>
-
         hoa.ten.toLowerCase().includes(tuKhoa)
-
     );
 
     hienThiSanPham(ketQua);
@@ -90,30 +92,32 @@ function timKiemSanPham(){
 }
 
 // =====================================
-// LỌC THEO DANH MỤC
+// LỌC DANH MỤC
 // =====================================
 
-function locDanhMuc(danhMuc){
+function locDanhMuc(danhMuc) {
 
     const ketQua = danhSachHoa.filter(hoa =>
-
         hoa.danhMuc === danhMuc
-
     );
 
     hienThiSanPham(ketQua);
 
+    cuonSanPham();
+
 }
 
 // =====================================
-// XEM TẤT CẢ SẢN PHẨM
+// XEM TẤT CẢ
 // =====================================
 
-function xemTatCa(){
+function xemTatCa() {
 
     document.getElementById("txtTimKiem").value = "";
 
     hienThiSanPham(danhSachHoa);
+
+    cuonSanPham();
 
 }
 
@@ -121,11 +125,9 @@ function xemTatCa(){
 // XEM CHI TIẾT
 // =====================================
 
-function xemChiTiet(ma){
+function xemChiTiet(ma) {
 
-    window.location.href =
-
-    "chi-tiet.html?ma=" + ma;
+    window.location.href = "chi-tiet.html?ma=" + ma;
 
 }
 
@@ -133,46 +135,40 @@ function xemChiTiet(ma){
 // THÊM GIỎ HÀNG
 // =====================================
 
-function themGioHang(ma){
+function themGioHang(ma) {
 
-    const hoa = danhSachHoa.find(item =>
-
-        item.ma === ma
-
-    );
+    const hoa = danhSachHoa.find(item => item.ma === ma);
 
     let gioHang = JSON.parse(
-
         localStorage.getItem("gioHang")
-
     ) || [];
 
-    const viTri = gioHang.findIndex(item =>
+    const viTri = gioHang.findIndex(item => item.ma === ma);
 
-        item.ma === ma
-
-    );
-
-    if(viTri >= 0){
+    if (viTri >= 0) {
 
         gioHang[viTri].soLuong++;
 
-    }else{
+    } else {
 
-        hoa.soLuong = 1;
+        gioHang.push({
 
-        gioHang.push(hoa);
+            ma: hoa.ma,
+            ten: hoa.ten,
+            gia: hoa.gia,
+            giamGia: hoa.giamGia,
+            hinh: hoa.hinh,
+            soLuong: 1
+
+        });
 
     }
 
     localStorage.setItem(
-
         "gioHang",
-
         JSON.stringify(gioHang)
-
     );
 
-    alert("Đã thêm \"" + hoa.ten + "\" vào giỏ hàng!");
+    alert('Đã thêm "' + hoa.ten + '" vào giỏ hàng!');
 
 }
