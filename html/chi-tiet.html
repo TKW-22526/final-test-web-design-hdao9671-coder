@@ -57,7 +57,22 @@
 
 
          <p id="moTa"></p>
+<div class="so-luong-mua">
 
+    <span>Số lượng:</span>
+
+    <button type="button" onclick="giamSoLuong()">-</button>
+
+    <input
+        type="number"
+        id="soLuong"
+        value="1"
+        min="1"
+        readonly>
+
+    <button type="button" onclick="tangSoLuong()">+</button>
+
+</div>
 <div class="nut-chi-tiet">
 
     <button class="btn-gio" onclick="themGioHang()">
@@ -77,19 +92,15 @@
     </button>
 
 </div>
+<!-- Nút quay lại -->
 
-<a href="javascript:history.back()" class="quay-lai">
+<a href="san-pham.html" class="btn-quay-lai">
 
     <i class="fa-solid fa-arrow-left"></i>
 
-    Quay lại sản phẩm
+    Quay về sản phẩm
 
 </a>
-
-
-        </div>
-
-
     </section>
 
 

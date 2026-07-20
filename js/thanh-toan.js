@@ -8,57 +8,130 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
 // =====================================
-// HIỂN THỊ SẢN PHẨM MUA NGAY
+// HIỂN THỊ SẢN PHẨM THANH TOÁN
 // =====================================
 
 function hienThiSanPham() {
 
-    const maHoa = localStorage.getItem("muaNgay");
+    const khung = document.getElementById("sanPhamThanhToan");
 
-    if (!maHoa) {
+    let html = "";
 
-        document.querySelector(".thanh-toan-box").innerHTML =
+    let tongTien = 0;
 
-            "<h2>Không có sản phẩm để thanh toán!</h2>";
+    // ==========================
+    // THANH TOÁN TỪ GIỎ HÀNG
+    // ==========================
 
-        return;
+    if (localStorage.getItem("thanhToanGioHang")) {
+
+        let gioHang = JSON.parse(
+            localStorage.getItem("gioHang")
+        ) || [];
+
+        if (gioHang.length == 0) {
+
+            khung.innerHTML = "<h3>Giỏ hàng đang trống!</h3>";
+
+            document.getElementById("tongTien").innerHTML = "0 VNĐ";
+
+            return;
+
+        }
+
+        gioHang.forEach(hoa => {
+
+            let gia = hoa.gia - hoa.gia * hoa.giamGia / 100;
+
+            tongTien += gia * hoa.soLuong;
+
+            html += `
+
+            <div class="item-thanh-toan">
+
+                <img src="${hoa.hinh}" alt="${hoa.ten}">
+
+                <div>
+
+                    <h3>${hoa.ten}</h3>
+
+                    <p>Đơn giá: ${doiTien(gia)}</p>
+
+                    <p>Số lượng: ${hoa.soLuong}</p>
+
+                    <p><b>Thành tiền:
+                    ${doiTien(gia * hoa.soLuong)}</b></p>
+
+                </div>
+
+            </div>
+
+            `;
+
+        });
 
     }
 
-    const hoa = danhSachHoa.find(item => item.ma == maHoa);
+    // ==========================
+    // MUA NGAY
+    // ==========================
 
-    if (!hoa) return;
+    else {
 
-    document.getElementById("anhHoa").src = hoa.hinh;
+        const maHoa = localStorage.getItem("muaNgay");
 
-    document.getElementById("tenHoa").innerHTML = hoa.ten;
+        const soLuong = parseInt(
+            localStorage.getItem("soLuongMuaNgay")
+        ) || 1;
 
-    const giaSauGiam =
-        hoa.gia - (hoa.gia * hoa.giamGia / 100);
+        if (!maHoa) {
 
-    document.getElementById("giaHoa").innerHTML =
+            khung.innerHTML =
+                "<h3>Không có sản phẩm để thanh toán!</h3>";
 
-        `
-        <span class="gia-cu">
+            return;
 
-            ${doiTien(hoa.gia)}
+        }
 
-        </span>
+        const hoa = danhSachHoa.find(
+            item => item.ma == maHoa
+        );
 
-        <br>
+        if (!hoa) return;
 
-        <span class="gia-moi">
+        let gia = hoa.gia - hoa.gia * hoa.giamGia / 100;
 
-            ${doiTien(giaSauGiam)}
+        tongTien = gia * soLuong;
 
-        </span>
+        html = `
+
+        <div class="item-thanh-toan">
+
+            <img src="${hoa.hinh}" alt="${hoa.ten}">
+
+            <div>
+
+                <h3>${hoa.ten}</h3>
+
+                <p>Đơn giá: ${doiTien(gia)}</p>
+
+                <p>Số lượng: ${soLuong}</p>
+
+            </div>
+
+        </div>
+
         `;
 
+    }
+
+    khung.innerHTML = html;
+
+    document.getElementById("tongTien").innerHTML =
+        doiTien(tongTien);
+
 }
-
-
 
 // =====================================
 // ĐẶT HÀNG
@@ -86,20 +159,21 @@ function datHang() {
 
         "Cảm ơn " + hoTen +
 
-        " đã mua hoa tại Flower Shop."
+        " đã mua hàng tại Flower Shop."
 
     );
 
     localStorage.removeItem("muaNgay");
+    localStorage.removeItem("soLuongMuaNgay");
+    localStorage.removeItem("thanhToanGioHang");
+    localStorage.removeItem("gioHang");
 
     window.location.href = "../index.html";
 
 }
 
-
-
 // =====================================
-// ĐỔI ĐỊNH DẠNG TIỀN
+// ĐỊNH DẠNG TIỀN
 // =====================================
 
 function doiTien(gia) {

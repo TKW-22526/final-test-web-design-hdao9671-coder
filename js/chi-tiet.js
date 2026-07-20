@@ -157,7 +157,6 @@ function formatGia(gia){
 // ================================
 // THÊM GIỎ HÀNG
 // ================================
-
 function themGioHang(){
 
     const maHoa = new URLSearchParams(
@@ -167,6 +166,10 @@ function themGioHang(){
     const hoa = danhSachHoa.find(
         item => item.ma == maHoa
     );
+
+    const soLuong = parseInt(
+        document.getElementById("soLuong").value
+    ) || 1;
 
     let gioHang = JSON.parse(
         localStorage.getItem("gioHang")
@@ -178,23 +181,18 @@ function themGioHang(){
 
     if(viTri >= 0){
 
-        gioHang[viTri].soLuong++;
+        gioHang[viTri].soLuong += soLuong;
 
     }else{
 
         gioHang.push({
 
             ma: hoa.ma,
-
             ten: hoa.ten,
-
             gia: hoa.gia,
-
             giamGia: hoa.giamGia,
-
             hinh: hoa.hinh,
-
-            soLuong: 1
+            soLuong: soLuong
 
         });
 
@@ -206,9 +204,8 @@ function themGioHang(){
     );
 
     alert("Đã thêm vào giỏ hàng!");
+
 }
-
-
 
 // ================================
 // MUA NGAY
@@ -219,10 +216,59 @@ function muaNgay(){
         window.location.search
     ).get("ma");
 
+    const soLuong = parseInt(
+        document.getElementById("soLuong").value
+    );
+
     localStorage.setItem("muaNgay", maHoa);
+
+    localStorage.setItem("soLuongMuaNgay", soLuong);
 
     localStorage.removeItem("thanhToanGioHang");
 
     window.location.href = "thanh-toan.html";
+
+
+}
+// ================================
+// TĂNG SỐ LƯỢNG
+// ================================
+
+function tangSoLuong(){
+
+    const input = document.getElementById("soLuong");
+
+    input.value = parseInt(input.value) + 1;
+
+}
+
+// ================================
+// GIẢM SỐ LƯỢNG
+// ================================
+
+function giamSoLuong(){
+
+    const input = document.getElementById("soLuong");
+
+    if(parseInt(input.value) > 1){
+
+        input.value = parseInt(input.value) - 1;
+
+    }
+
+}
+function quayLaiSanPham(){
+
+    let ma = localStorage.getItem("sanPhamVuaXem");
+
+    if(ma){
+
+        window.location.href = "san-pham.html#" + ma;
+
+    }else{
+
+        window.location.href = "san-pham.html";
+
+    }
 
 }
